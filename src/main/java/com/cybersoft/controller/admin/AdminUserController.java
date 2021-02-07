@@ -20,7 +20,6 @@ import com.cybersoft.service.UserService;
 
 @RestController
 @RequestMapping("/api/admin/user")
-@CrossOrigin("*")
 public class AdminUserController {
 	
 	@Autowired

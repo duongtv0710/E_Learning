@@ -2,6 +2,8 @@ package com.cybersoft.dto;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CourseDto {
 
 	private int id;
@@ -9,6 +11,7 @@ public class CourseDto {
 	private String image;
 	private int leturesCount;
 	private int hourCount;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="YYYY-MM-DD hh:mm:ss")
 	private Timestamp lastUpdate;
 	private int viewCount;
 	private float price;

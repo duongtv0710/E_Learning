@@ -32,6 +32,7 @@ public class Course {
 	@Column(name = "hour_count")
 	private int hourCount;
 	
+	
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	

@@ -20,7 +20,6 @@ import com.cybersoft.service.RoleService;
 
 @RestController
 @RequestMapping("/api/admin/role")
-@CrossOrigin("*")
 public class AdminRoleController {
 	
 	@Autowired
