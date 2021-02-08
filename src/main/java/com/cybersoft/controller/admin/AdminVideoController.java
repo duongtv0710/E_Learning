@@ -14,65 +14,57 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cybersoft.dto.RoleDto;
-import com.cybersoft.service.RoleService;
+import com.cybersoft.dto.VideoDto;
+import com.cybersoft.service.VideoService;
 
 @RestController
-@RequestMapping("/api/admin/role")
-public class AdminRoleController {
+@RequestMapping("/api/admin/video")
+public class AdminVideoController {
 	
 	@Autowired
-	RoleService roleService;
+	private VideoService videoService;
 
 	@GetMapping("")
-	public Object get() {	
+	public Object get() {
 		try {
-			List<RoleDto> listRole = roleService.getAll();	
-			return new ResponseEntity<Object>(listRole, HttpStatus.OK);	
+			List<VideoDto> listVideo = videoService.getAll();
+			return new ResponseEntity<Object>(listVideo, HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 	
 	@PostMapping("")
-	public Object post(@RequestBody RoleDto role) {
+	public Object post(@RequestBody VideoDto dto) {
 		try {
-			roleService.save(role);	
-			return new ResponseEntity<Object>(HttpStatus.CREATED);	
+			videoService.save(dto);
+			return new ResponseEntity<Object>(HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody RoleDto role) {
+	public Object put(@RequestBody VideoDto dto) {
 		try {
-			roleService.edit(role);
-			return new ResponseEntity<Object>(HttpStatus.OK);	
+			videoService.edit(dto);
+			return new ResponseEntity<Object>(HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 	
 	@DeleteMapping("{id}")
 	public Object delete(@PathVariable int id) {
 		try {
-			roleService.deleteById(id);
-			return new ResponseEntity<Object>(HttpStatus.OK);	
+			videoService.deleteById(id);
+			return new ResponseEntity<Object>(HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 }

@@ -14,65 +14,58 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cybersoft.dto.RoleDto;
-import com.cybersoft.service.RoleService;
+import com.cybersoft.dto.TargetDto;
+import com.cybersoft.service.TargetService;
 
 @RestController
-@RequestMapping("/api/admin/role")
-public class AdminRoleController {
-	
-	@Autowired
-	RoleService roleService;
+@RequestMapping("/api/admin/target")
+public class AdminTargetController {
 
+	@Autowired
+	private TargetService targetService;
+	
 	@GetMapping("")
-	public Object get() {	
+	public Object get() {
 		try {
-			List<RoleDto> listRole = roleService.getAll();	
-			return new ResponseEntity<Object>(listRole, HttpStatus.OK);	
+			List<TargetDto> listTarget = targetService.getAll();
+			return new ResponseEntity<Object>(listTarget, HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 	
 	@PostMapping("")
-	public Object post(@RequestBody RoleDto role) {
+	public Object post(@RequestBody TargetDto dto) {
 		try {
-			roleService.save(role);	
-			return new ResponseEntity<Object>(HttpStatus.CREATED);	
+			targetService.add(dto);
+			return new ResponseEntity<Object>(HttpStatus.CREATED);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody RoleDto role) {
+	public Object put(@RequestBody TargetDto dto) {
 		try {
-			roleService.edit(role);
-			return new ResponseEntity<Object>(HttpStatus.OK);	
+			targetService.edit(dto);
+			return new ResponseEntity<Object>(HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 	
 	@DeleteMapping("{id}")
 	public Object delete(@PathVariable int id) {
 		try {
-			roleService.deleteById(id);
-			return new ResponseEntity<Object>(HttpStatus.OK);	
+			targetService.deleteById(id);
+			return new ResponseEntity<Object>(HttpStatus.OK);
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-			
 		}
 	}
 }
+
