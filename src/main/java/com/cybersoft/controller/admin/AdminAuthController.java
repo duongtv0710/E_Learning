@@ -20,7 +20,7 @@ public class AdminAuthController {
 	@Autowired
 	private AuthService authService;
 
-	@PostMapping("")
+	@PostMapping("login")
 	public Object post(@Valid @RequestBody LoginDto account) {
 		try {
 			String token = authService.login(account);
