@@ -1,33 +1,35 @@
 let token = localStorage.getItem('USER_TOKEN');
 
-function loadRoleData() {
+function loadData(){
     // LẤY TOKEN TỪ LOCALSTORAGE
     axios({
-        url: 'http://localhost:8080/api/admin/role',
+        url: 'http://localhost:8080/api/admin/video',
         method: 'get',
         headers: {
             "Authorization": `Bearer ${token}`
         }
     })
     .then(function(resp) {
-        let listRole = resp.data;
+        let listVideo = resp.data;
         let content = '';
-        for (let role of listRole) {
+        let No = 1;
+        for (let video of listVideo) {
             content += `
             <tr>
-                <th>${role.id}</th>
-                <td>${role.name}</td>
-                <td>${role.description}</td>
+                <th>${No}</th>
+                <td>${video.title}</td>
                 <td>
-                    <a href="/role-edit.html?id=${role.id}"
-                        class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-                    <a href="javascript:void(0)"
-                        class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${role.id})">Xóa</a>
+                    <img src='http://localhost:8080/img/${video.url}' height="50" class="p-1 border" />
+                </td>
+                <td>12 phút</td>
+                <td>
+                    <a href="/video-edit?id=${video.id}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${video.id})" >Xóa</a>
                 </td>
             </tr>
             `;
         }
-        document.getElementById('tbodyRole').innerHTML = content;
+        document.getElementById('tBodyVideo').innerHTML = content;
     })
     .catch(function(err){
         let data = err.response.data;
@@ -40,7 +42,7 @@ function loadRoleData() {
     })
 }
 
-loadRoleData();
+loadData();
 
 function remove(id){
     swal({
@@ -53,7 +55,7 @@ function remove(id){
       .then((willDelete) => {
         if (willDelete) {
             axios({
-                url: `http://localhost:8080/api/admin/role/${id}`,
+                url: `http://localhost:8080/api/admin/video/${id}`,
                 method: 'delete',
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -61,7 +63,7 @@ function remove(id){
             })
             .then(function(resp){
                 swal("Successfull !", "You clicked the button!", "success").then(function(resp){
-                    window.location.href = '/role-index.html';
+                    loadData();
                 })
             })
             .catch(function(err){

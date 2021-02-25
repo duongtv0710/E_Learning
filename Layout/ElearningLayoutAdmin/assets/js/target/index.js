@@ -1,33 +1,32 @@
 let token = localStorage.getItem('USER_TOKEN');
 
-function loadRoleData() {
+function loadData() {
     // LẤY TOKEN TỪ LOCALSTORAGE
     axios({
-        url: 'http://localhost:8080/api/admin/role',
+        url: 'http://localhost:8080/api/admin/target',
         method: 'get',
         headers: {
             "Authorization": `Bearer ${token}`
         }
     })
     .then(function(resp) {
-        let listRole = resp.data;
+        let listTarget = resp.data;
         let content = '';
-        for (let role of listRole) {
+        let No = 1;
+        for (let target of listTarget) {
             content += `
             <tr>
-                <th>${role.id}</th>
-                <td>${role.name}</td>
-                <td>${role.description}</td>
+                <th>${No}</th>
+                <td>${target.title}</td>
                 <td>
-                    <a href="/role-edit.html?id=${role.id}"
-                        class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-                    <a href="javascript:void(0)"
-                        class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${role.id})">Xóa</a>
+                    <a href="/target-edit.html?id=${target.id}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${target.id})">Xóa</a>
                 </td>
             </tr>
             `;
+            No++;
         }
-        document.getElementById('tbodyRole').innerHTML = content;
+        document.getElementById('tBodyTarget').innerHTML = content;
     })
     .catch(function(err){
         let data = err.response.data;
@@ -40,7 +39,7 @@ function loadRoleData() {
     })
 }
 
-loadRoleData();
+loadData();
 
 function remove(id){
     swal({
@@ -53,7 +52,7 @@ function remove(id){
       .then((willDelete) => {
         if (willDelete) {
             axios({
-                url: `http://localhost:8080/api/admin/role/${id}`,
+                url: `http://localhost:8080/api/admin/target/${id}`,
                 method: 'delete',
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -61,7 +60,7 @@ function remove(id){
             })
             .then(function(resp){
                 swal("Successfull !", "You clicked the button!", "success").then(function(resp){
-                    window.location.href = '/role-index.html';
+                    loadData();
                 })
             })
             .catch(function(err){

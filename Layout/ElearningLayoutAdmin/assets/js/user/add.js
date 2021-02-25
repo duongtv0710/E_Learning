@@ -30,67 +30,71 @@ loadRole();
 
 function addRole() {
 
+    
+
+    // let fullname = document.getElementById('fullname').value;
+    // if (fullname.length == 0) {
+    //     flag = false;
+    //     document.getElementById('fullnameErr').innerHTML = 'Vui lòng nhập họ tên!';
+    // }
+    // else {
+    //     document.getElementById('fullnameErr').innerHTML = '';
+    // }
+
+    // let email = document.getElementById('email').value;
+    // if (email.length == 0) {
+    //     flag = false;
+    //     document.getElementById('emailErr').innerHTML = 'Vui lòng nhập email!';
+    // }
+    // else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) === false) {
+    //     flag = false;
+    //     document.getElementById('emailErr').innerHTML = 'Email không đúng định dạng!';
+    // }
+    // else {
+    //     document.getElementById('emailErr').innerHTML = '';
+    // }
+
+    // let password = document.getElementById('password').value;
+    // if (password.length == 0) {
+    //     flag = false;
+    //     document.getElementById('passwordErr').innerHTML = 'Vui lòng nhập mật khẩu!';
+    // }
+    // else if (password.length < 6) {
+    //     flag = false;
+    //     document.getElementById('passwordErr').innerHTML = 'Mật khẩu ít nhất 6 ký tự!';
+    // }
+    // else {
+    //     document.getElementById('passwordErr').innerHTML = '';
+    // }
+
+    // let confirm = document.getElementById('confirm').value;
+    // if (confirm.length == 0) {
+    //     flag = false;
+    //     document.getElementById('confirmErr').innerHTML = 'Vui lòng nhập lại mật khẩu!';
+    // }
+    // else if (confirm !== password) {
+    //     flag = false;
+    //     document.getElementById('confirmErr').innerHTML = 'Nhập lại mật khẩu không khớp!';
+    // }
+    // else {
+    //     document.getElementById('confirmErr').innerHTML = '';
+    // }
     let flag = true;
-
     let fullname = document.getElementById('fullname').value;
-    if (fullname.length == 0) {
-        flag = false;
-        document.getElementById('fullnameErr').innerHTML = 'Vui lòng nhập họ tên!';
-    }
-    else {
-        document.getElementById('fullnameErr').innerHTML = '';
-    }
-
     let email = document.getElementById('email').value;
-    if (email.length == 0) {
-        flag = false;
-        document.getElementById('emailErr').innerHTML = 'Vui lòng nhập email!';
-    }
-    else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) === false) {
-        flag = false;
-        document.getElementById('emailErr').innerHTML = 'Email không đúng định dạng!';
-    }
-    else {
-        document.getElementById('emailErr').innerHTML = '';
-    }
-
     let password = document.getElementById('password').value;
-    if (password.length == 0) {
-        flag = false;
-        document.getElementById('passwordErr').innerHTML = 'Vui lòng nhập mật khẩu!';
-    }
-    else if (password.length < 6) {
-        flag = false;
-        document.getElementById('passwordErr').innerHTML = 'Mật khẩu ít nhất 6 ký tự!';
-    }
-    else {
-        document.getElementById('passwordErr').innerHTML = '';
-    }
-
-    let confirm = document.getElementById('confirm').value;
-    if (confirm.length == 0) {
-        flag = false;
-        document.getElementById('confirmErr').innerHTML = 'Vui lòng nhập lại mật khẩu!';
-    }
-    else if (confirm !== password) {
-        flag = false;
-        document.getElementById('confirmErr').innerHTML = 'Nhập lại mật khẩu không khớp!';
-    }
-    else {
-        document.getElementById('confirmErr').innerHTML = '';
-    }
-
     let roleId = document.getElementById('roleId').value;
     let avatar = document.getElementById('imgUrl').value;
 
     if (flag === true) {
         // TẠO ĐỐI TƯỢNG USER
         let user = {
-            "fullname": fullname,
-            "email": email,
-            "password": password,
-            "confirm": confirm,
             "avatar": avatar,
+            "email": email,
+            "fullname": fullname,
+            "id": 0,
+            "password": password,
+            "roleDesc": "",
             "roleId": roleId
         }
 
@@ -104,11 +108,14 @@ function addRole() {
             }
         })
             .then(function (resp) {
-                console.log('Thành công!');
+                swal("Successfull !", "You clicked the button!", "success").then(function(resp){
+                    window.location.href = '/user-index.html';
+                })
+                
             })
             .catch(function (err) {
                 console.log(err.response);
-                console.log('Thất bại!');
+                swal("Unsuccessfull !", "You clicked the button!", "error");
             })
     }
 }
@@ -120,7 +127,7 @@ function uploadAvatar() {
     formData.append('file', avatarInput.files[0]);
 
     axios({
-        url: 'http://localhost:8080/api/admin/file/upload',
+        url: 'http://localhost:8080/api/file/upload',
         method: 'POST',
         data: formData,
         headers: {

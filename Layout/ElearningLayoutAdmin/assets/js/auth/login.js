@@ -24,7 +24,7 @@ function login() {
         localStorage.setItem('USER_TOKEN', resp.data);
 
         // CHUYỂN HƯỚNG VỀ TRANG DANH SÁCH ROLE
-        // document.location.href = "/role-index.html";
+        document.location.href = "/user-index.html";
     })
     .catch(function(err){
         console.log(err.response)

@@ -21,7 +21,7 @@ function getInfo() {
                 <td>${user.email}</td>
                 <td>${user.roleDesc}</td>
                 <td>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                    <a href="/user-edit.html?id=${user.id}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
                     <a href="javascript:void(0)" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${user.id})">Xóa</a>
                 </td>
             </tr>
@@ -82,3 +82,4 @@ function remove(id){
       });
     
 }
+
