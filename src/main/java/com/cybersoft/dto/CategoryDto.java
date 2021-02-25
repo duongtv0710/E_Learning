@@ -1,9 +1,17 @@
 package com.cybersoft.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
 public class CategoryDto {
 
+	@Min(1)
 	private int id;
+	
+	@NotEmpty(message = "Please Enter Title !")
 	private String title;
+	
+	@NotEmpty(message = "Please Enter Icon !")
 	private String icon;
 
 	public int getId() {

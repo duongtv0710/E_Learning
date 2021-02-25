@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +39,21 @@ public class AdminRoleController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {	
+		try {
+			RoleDto role = roleService.getById(id);
+			return new ResponseEntity<Object>(role, HttpStatus.OK);	
+			
+		} catch (Exception e) {
+			e.printStackTrace();	
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+			
+		}
+	}
+	
 	@PostMapping("")
-	public Object post(@RequestBody RoleDto role) {
+	public Object post(@Valid @RequestBody RoleDto role) {
 		try {
 			roleService.save(role);	
 			return new ResponseEntity<Object>(HttpStatus.CREATED);	
@@ -51,7 +66,7 @@ public class AdminRoleController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody RoleDto role) {
+	public Object put(@Valid @RequestBody RoleDto role) {
 		try {
 			roleService.edit(role);
 			return new ResponseEntity<Object>(HttpStatus.OK);	

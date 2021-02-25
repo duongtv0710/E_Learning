@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public User transToEntity(UserDto dto) {
-		return new User(dto.getId(), dto.getFullname(), dto.getEmail(), dto.getPassword(), dto.getAvatar(), dto.getRoleId());	
+		return new User(dto.getId(), dto.getEmail(), dto.getPassword(), dto.getFullname(), dto.getAvatar(), dto.getRoleId());	
 		
 	}
 

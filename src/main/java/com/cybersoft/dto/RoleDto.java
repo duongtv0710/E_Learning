@@ -1,8 +1,16 @@
 package com.cybersoft.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
 public class RoleDto {
+	@Min(1)
 	private int id;
+	
+	@NotEmpty(message = "Please Enter Name !")
 	private String name;
+	
+	@NotEmpty(message = "Please Enter Description !")
 	private String description;
 	
 	public RoleDto() {}

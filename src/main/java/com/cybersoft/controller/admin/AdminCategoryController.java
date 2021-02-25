@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,7 @@ public class AdminCategoryController {
 	}
 	
 	@PostMapping("")
-	public Object post(@RequestBody CategoryDto category) {
+	public Object post(@Valid @RequestBody CategoryDto category) {
 		try {
 			categoryService.save(category);	
 			return new ResponseEntity<Object>(HttpStatus.CREATED);	
@@ -51,7 +53,7 @@ public class AdminCategoryController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody CategoryDto category) {
+	public Object put(@Valid @RequestBody CategoryDto category) {
 		try {
 			categoryService.edit(category);
 			return new ResponseEntity<Object>(HttpStatus.OK);	

@@ -1,11 +1,22 @@
 package com.cybersoft.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class VideoDto {
 
+	@NotEmpty(message = "Id is not Null !")
 	private int id;
+	
+	@NotEmpty(message = "Please Enter Title !")
 	private String title;
+	
+	@NotEmpty(message = "Please Enter TimeCount !")
 	private int timeCount;
+	
+	@NotEmpty(message = "Please Enter Url !")
 	private String url;
+	
+	@NotEmpty(message = "Please Enter Course_Id !")
 	private int courseId;
 
 	public int getId() {

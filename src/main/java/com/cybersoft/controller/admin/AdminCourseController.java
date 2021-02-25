@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +39,7 @@ public class AdminCourseController {
 	}
 	
 	@PostMapping("")
-	public Object post(@RequestBody CourseDto courseDto) {
+	public Object post(@Valid @RequestBody CourseDto courseDto) {
 		try {
 			courseService.add(courseDto);
 			return new ResponseEntity<Object>(HttpStatus.CREATED);
@@ -49,7 +51,7 @@ public class AdminCourseController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody CourseDto courseDto) {
+	public Object put(@Valid @RequestBody CourseDto courseDto) {
 		try {
 			courseService.update(courseDto);
 			return new ResponseEntity<Object>(HttpStatus.OK);

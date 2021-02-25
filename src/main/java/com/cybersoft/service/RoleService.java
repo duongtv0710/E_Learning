@@ -14,4 +14,6 @@ public interface RoleService {
 
 	void deleteById(int id);
 
+	RoleDto getById(int id);
+
 }

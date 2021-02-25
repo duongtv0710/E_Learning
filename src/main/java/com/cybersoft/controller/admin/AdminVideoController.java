@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +38,7 @@ public class AdminVideoController {
 	}
 	
 	@PostMapping("")
-	public Object post(@RequestBody VideoDto dto) {
+	public Object post(@Valid @RequestBody VideoDto dto) {
 		try {
 			videoService.save(dto);
 			return new ResponseEntity<Object>(HttpStatus.OK);
@@ -47,7 +49,7 @@ public class AdminVideoController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody VideoDto dto) {
+	public Object put(@Valid @RequestBody VideoDto dto) {
 		try {
 			videoService.edit(dto);
 			return new ResponseEntity<Object>(HttpStatus.OK);
