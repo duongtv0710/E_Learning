@@ -1,35 +1,35 @@
 let token = localStorage.getItem('USER_TOKEN');
 
-function loadData(){
+function loadCate() {
     // LẤY TOKEN TỪ LOCALSTORAGE
     axios({
-        url: 'http://localhost:8080/api/admin/video',
+        url: 'http://localhost:8080/api/admin/category',
         method: 'get',
         headers: {
             "Authorization": `Bearer ${token}`
         }
     })
     .then(function(resp) {
-        let listVideo = resp.data;
+        let listCate = resp.data;
         let content = '';
         let No = 1;
-        for (let video of listVideo) {
+        for (let cate of listCate) {
             content += `
             <tr>
                 <th>${No}</th>
-                <td>${video.title}</td>
+                <td>${cate.title}</td>
                 <td>
-                    <img src='http://localhost:8080/img/${video.avatar}' height="50" class="p-1 border" />
+                    <img src='http://localhost:8080/img/${cate.icon}' height="50" class="p-1 border" />
                 </td>
-                <td>${video.timeCount}</td>
                 <td>
-                    <a href="/video-edit.html?id=${video.id}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${video.id})" >Xóa</a>
+                    <a href="/category-edit.html?id=${cate.id}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold" onclick="remove(${cate.id})" >Xóa</a>
                 </td>
             </tr>
             `;
+            No++;
         }
-        document.getElementById('tBodyVideo').innerHTML = content;
+        document.getElementById('tBodyCate').innerHTML = content;
     })
     .catch(function(err){
         let data = err.response.data;
@@ -42,7 +42,7 @@ function loadData(){
     })
 }
 
-loadData();
+loadCate();
 
 function remove(id){
     swal({
@@ -55,7 +55,7 @@ function remove(id){
       .then((willDelete) => {
         if (willDelete) {
             axios({
-                url: `http://localhost:8080/api/admin/video/${id}`,
+                url: `http://localhost:8080/api/admin/category/${id}`,
                 method: 'delete',
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -63,7 +63,7 @@ function remove(id){
             })
             .then(function(resp){
                 swal("Successfull !", "You clicked the button!", "success").then(function(resp){
-                    loadData();
+                    window.location.href = '/category-index.html';
                 })
             })
             .catch(function(err){

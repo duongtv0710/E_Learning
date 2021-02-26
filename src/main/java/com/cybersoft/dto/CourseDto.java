@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CourseDto {
 
-	@Min(1)
 	private int id;
 	
 	@NotEmpty(message = "Please Enter Title !")
@@ -28,22 +27,21 @@ public class CourseDto {
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="YYYY-MM-DD hh:mm:ss")
 	private Timestamp lastUpdate;
 	
-	@Min(1)
+	
 	private int viewCount;
 	
-	@NotEmpty(message = "Please Enter Price !")
+	@Min(1)
 	private float price;
 	
-	@Min(1)
+
 	private int discount;
 	
-	@NotEmpty(message = "Please Enter PromotionPrice !")
+
 	private float promotionPrice;
 	
 	@NotEmpty(message = "Please Enter Description !")
 	private String description;
 	
-	@Min(1)
 	private int categoryId;
 
 	public int getId() {

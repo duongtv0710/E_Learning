@@ -39,6 +39,19 @@ public class AdminCategoryController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {	
+		try {
+			CategoryDto category = categoryService.getById(id);	
+			return new ResponseEntity<Object>(category, HttpStatus.OK);	
+			
+		} catch (Exception e) {
+			e.printStackTrace();	
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+			
+		}
+	}
+	
 	@PostMapping("")
 	public Object post(@Valid @RequestBody CategoryDto category) {
 		try {

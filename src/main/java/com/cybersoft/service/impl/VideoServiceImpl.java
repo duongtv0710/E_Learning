@@ -25,7 +25,8 @@ public class VideoServiceImpl implements VideoService{
 		for(Video entity : entities) {
 			dtos.add(new VideoDto(
 					entity.getId(), 
-					entity.getTitle(), 
+					entity.getTitle(),
+					entity.getAvatar(),
 					entity.getTimeCount(),
 					entity.getUrl(), 
 					entity.getCourseId()));
@@ -42,7 +43,8 @@ public class VideoServiceImpl implements VideoService{
 		
 		videoRepository.save(new Video(
 				dto.getId(), 
-				dto.getTitle(), 
+				dto.getTitle(),
+				dto.getAvatar(),
 				dto.getTimeCount(), 
 				dto.getUrl(), 
 				dto.getCourseId()));
@@ -58,6 +60,7 @@ public class VideoServiceImpl implements VideoService{
 		videoRepository.saveAndFlush(new Video(
 				dto.getId(), 
 				dto.getTitle(), 
+				dto.getAvatar(),
 				dto.getTimeCount(), 
 				dto.getUrl(), 
 				dto.getCourseId()));
@@ -85,6 +88,7 @@ public class VideoServiceImpl implements VideoService{
 		return new VideoDto(
 				entity.getId(), 
 				entity.getTitle(), 
+				entity.getAvatar(),
 				entity.getTimeCount(),
 				entity.getUrl(), 
 				entity.getCourseId());

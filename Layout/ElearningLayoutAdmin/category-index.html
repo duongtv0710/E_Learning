@@ -101,7 +101,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-normal-sign-in.htm">
+                                            <a href="javascript:void(0)" onclick="logout()">
                                                 <i class="feather icon-log-out"></i> Logout
                                             </a>
                                         </li>
@@ -197,7 +197,7 @@
                                                                     <th>Hành Động</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
+                                                            <tbody id="tBodyCate">
                                                                 <tr>
                                                                     <th>1</th>
                                                                     <td>Developer</td>
@@ -238,9 +238,13 @@
     <script src="assets/js/vartical-layout.min.js"></script>
     <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Custom js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
     <script src="http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
+    <script src="assets/js/main/index.js"></script>
+    <script src="assets/js/category/index.js"></script>
 </body>
 
 </html>

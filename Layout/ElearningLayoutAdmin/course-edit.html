@@ -173,18 +173,17 @@
                                             <div class="page-header-breadcrumb">
                                                 <ul class="breadcrumb-title">
                                                     <li class="breadcrumb-item">
-                                                        <a href="/admin"> 
-                                                            <i class="feather icon-home"></i> Trang chủ
-                                                        </a>
+                                                        <a href="/admin"> <i class="feather icon-home"></i> Trang
+                                                            chủ</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Thêm mới video</a></li>
+                                                    <li class="breadcrumb-item"><a href="#!">Cập nhật khóa học</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h2 class="text-uppercase text-center">Thêm mới video</h2>
+                                                    <h2 class="text-uppercase text-center">Cập nhật khóa học</h2>
                                                 </div>
                                                 <div class="card-block">
                                                     <form action="#" method="post">
@@ -192,36 +191,58 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Tiêu đề</label>
-                                                                    <input type="text" name="title" class="form-control" id="title"/>
+                                                                    <input type="text" name="title" id="title"
+                                                                        class="form-control" />
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label>Url</label>
-                                                                    <input type="text" name="url" class="form-control" id="url"/>
+                                                                    <label>Số bài học</label>
+                                                                    <input type="number" name="leturesCount" id="letureCount"
+                                                                        class="form-control" />
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <label>Số giờ học</label>
+                                                                    <input type="number" name="hourCount" id="hourCount"
+                                                                        class="form-control" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Danh mục</label>
+                                                                    <select name="categoryId" id="categoryId" class="form-control">
+                                                                        <option>Frontend</option>
+                                                                        <option>Backend</option>
+                                                                        <option>Mobile</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Giá bán</label>
+                                                                    <input type="text" name="price" id="price"
+                                                                        class="form-control" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Giảm giá (%)</label>
+                                                                    <input type="number" name="discount" id="discount"
+                                                                        class="form-control" />
+                                                                </div>
+    
                                                                 <div class="form-group">
                                                                     <label>Avatar</label>
                                                                     <input type="file" onchange="uploadAvatar()" id="avatar" class="form-control" />
                                                                     <input type="hidden" id="imgUrl" />
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>Thời lượng (phút)</label>
-                                                                    <input type="number" name="timeCount" class="form-control" id="timeCount"/>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Khóa học</label>
-                                                                    <select name="course" id="course" class="form-control">
-                                                                        <option value="">Java script căn bản</option>
-                                                                        <option value="">Spring MVC</option>
-                                                                        <option value="">Spring Boot</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
                                                             <div class="col-12">
-                                                                <div class="form-group mt-3">
-                                                                    <button type="button" class="btn btn-primary m-b-0" onclick="addVideo()">Lưu lại</button>
-                                                                    <a href="./video-list.html" class="btn btn-secondary text-white">Quay lại</a>
+                                                                <label>Nội dung</label>
+                                                                <textarea name="content" class="form-control" id="content"
+                                                                    rows="5"></textarea>
+                                                            </div>
+                                                            <div class="col-12 mt-3">
+                                                                <div class="form-group">
+                                                                    <button type="button"
+                                                                        class="btn btn-primary m-b-0" onclick="save()">Lưu lại</button>
+                                                                    <a href="./course-list.html"
+                                                                        class="btn btn-secondary text-white">Quay
+                                                                        lại</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -258,7 +279,7 @@
     <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
     <script src="http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
     <script src="assets/js/main/index.js"></script>
-    <script src="assets/js/video/add.js"></script>
+    <script src="assets/js/course/edit.js"></script>
 </body>
 
 </html>

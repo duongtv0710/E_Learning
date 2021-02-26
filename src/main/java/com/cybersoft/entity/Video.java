@@ -20,6 +20,8 @@ public class Video {
 	
 	private String title;
 	
+	private String avatar;
+	
 	@Column(name = "time_count")
 	private int timeCount;
 	
@@ -31,6 +33,14 @@ public class Video {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "course_id", insertable = false, updatable = false)
 	private Course course;
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 
 	public int getId() {
 		return id;
@@ -76,13 +86,14 @@ public class Video {
 		
 	}
 
-	public Video(int id, String title, int timeCount, String url, int courseId) {
+	public Video(int id, String title,String avatar, int timeCount, String url, int courseId) {
 		
 		this.id = id;
 		this.title = title;
 		this.timeCount = timeCount;
 		this.url = url;
 		this.courseId = courseId;
+		this.avatar = avatar;
 	}
 	
 	

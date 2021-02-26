@@ -194,17 +194,17 @@
                                                             <div class="col-md-6 m-auto">
                                                                 <div class="form-group">
                                                                     <label>Tiêu đề</label>
-                                                                    <input type="text" path="title"
+                                                                    <input type="text" path="title" id="title"
                                                                         class="form-control" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Icon</label>
-                                                                    <input type="text" path="icon"
-                                                                        class="form-control" />
+                                                                    <input type="file" onchange="uploadAvatar()" id="avatar" class="form-control" />
+                                                                    <input type="hidden" id="imgUrl" />
                                                                 </div>
                                                                 <div class="form-group mt-3">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary m-b-0">Lưu
+                                                                    <button type="button"
+                                                                        class="btn btn-primary m-b-0" onclick="save()">Lưu
                                                                         lại</button>
                                                                     <a href="#"
                                                                         class="btn btn-secondary text-white">Quay
@@ -239,9 +239,13 @@
     <script src="assets/js/vartical-layout.min.js"></script>
     <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Custom js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
     <script src="http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
+    <script src="assets/js/main/index.js"></script>
+    <script src="assets/js/category/add.js"></script>
 </body>
 
 </html>

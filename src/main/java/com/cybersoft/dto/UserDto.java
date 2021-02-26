@@ -1,11 +1,9 @@
 package com.cybersoft.dto;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 public class UserDto {
 	
-	@Min(1)
 	private int id;
 	
 	@NotEmpty(message = "Please Enter Fullname !")
@@ -19,8 +17,7 @@ public class UserDto {
 	
 	@NotEmpty(message = "Please Enter Avatar !")
 	private String avatar;
-	
-	@Min(1)
+
 	private int roleId;
 	
 	private String roleDesc;

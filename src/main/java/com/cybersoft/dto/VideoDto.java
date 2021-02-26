@@ -1,23 +1,35 @@
 package com.cybersoft.dto;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 public class VideoDto {
 
-	@NotEmpty(message = "Id is not Null !")
+	
 	private int id;
 	
 	@NotEmpty(message = "Please Enter Title !")
 	private String title;
 	
-	@NotEmpty(message = "Please Enter TimeCount !")
+	@NotEmpty(message = "Please Enter Avatar !")
+	private String avatar;
+	
+	@Min(1)
 	private int timeCount;
 	
 	@NotEmpty(message = "Please Enter Url !")
 	private String url;
 	
-	@NotEmpty(message = "Please Enter Course_Id !")
+	
 	private int courseId;
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 
 	public int getId() {
 		return id;
@@ -63,13 +75,14 @@ public class VideoDto {
 		
 	}
 
-	public VideoDto(int id, String title, int timeCount, String url, int courseId) {
+	public VideoDto(int id, String title, String avatar ,int timeCount, String url, int courseId) {
 		
 		this.id = id;
 		this.title = title;
 		this.timeCount = timeCount;
 		this.url = url;
 		this.courseId = courseId;
+		this.avatar = avatar;
 	}
 	
 	

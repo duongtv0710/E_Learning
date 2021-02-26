@@ -191,22 +191,22 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Tiêu đề</label>
-                                                                    <input type="text" name="title"
+                                                                    <input type="text" name="title" id="title"
                                                                         class="form-control" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Số bài học</label>
-                                                                    <input type="number" name="leturesCount"
+                                                                    <input type="number" name="leturesCount" id="letureCount"
                                                                         class="form-control" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Số giờ học</label>
-                                                                    <input type="number" name="hourCount"
+                                                                    <input type="number" name="hourCount" id="hourCount"
                                                                         class="form-control" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Danh mục</label>
-                                                                    <select name="categoryId" class="form-control">
+                                                                    <select name="categoryId" id="categoryId" class="form-control">
                                                                         <option>Frontend</option>
                                                                         <option>Backend</option>
                                                                         <option>Mobile</option>
@@ -216,34 +216,30 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Giá bán</label>
-                                                                    <input type="text" name="price"
+                                                                    <input type="text" name="price" id="price"
                                                                         class="form-control" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Giảm giá (%)</label>
-                                                                    <input type="number" name="discount"
+                                                                    <input type="number" name="discount" id="discount"
                                                                         class="form-control" />
                                                                 </div>
+    
                                                                 <div class="form-group">
-                                                                    <label>Mô tả</label>
-                                                                    <input type="text" name="description"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Hình đại diện</label>
-                                                                    <input type="text" name="image"
-                                                                        class="form-control" />
+                                                                    <label>Avatar</label>
+                                                                    <input type="file" onchange="uploadAvatar()" id="avatar" class="form-control" />
+                                                                    <input type="hidden" id="imgUrl" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <label>Nội dung</label>
-                                                                <textarea name="content" class="form-control"
+                                                                <textarea name="content" class="form-control" id="content"
                                                                     rows="5"></textarea>
                                                             </div>
                                                             <div class="col-12 mt-3">
                                                                 <div class="form-group">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary m-b-0">Lưu lại</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-primary m-b-0" onclick="save()">Lưu lại</button>
                                                                     <a href="./course-list.html"
                                                                         class="btn btn-secondary text-white">Quay
                                                                         lại</a>
@@ -277,9 +273,13 @@
     <script src="assets/js/vartical-layout.min.js"></script>
     <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Custom js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
     <script src="http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
+    <script src="assets/js/main/index.js"></script>
+    <script src="assets/js/course/add.js"></script>
 </body>
 
 </html>

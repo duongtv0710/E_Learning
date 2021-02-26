@@ -37,6 +37,17 @@ public class AdminVideoController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {
+		try {
+			VideoDto video = videoService.getById(id);
+			return new ResponseEntity<Object>(video, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	@PostMapping("")
 	public Object post(@Valid @RequestBody VideoDto dto) {
 		try {
