@@ -17,6 +17,13 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 import io.jsonwebtoken.Jwts;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 public class AuthFilter extends BasicAuthenticationFilter{
 	
 	private UserDetailsService userDetailsService;

@@ -13,7 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Thịnh
+//Version:
+//Created on:
 @RestController
 @RequestMapping("api/file")
 public class FileController {

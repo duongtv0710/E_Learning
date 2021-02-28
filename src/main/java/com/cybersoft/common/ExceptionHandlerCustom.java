@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Thịnh
+//Version:
+//Created on:
 @ControllerAdvice
 public class ExceptionHandlerCustom extends ResponseEntityExceptionHandler{
 

@@ -16,6 +16,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.cybersoft.filter.AuthFilter;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 @Configuration
 @EnableWebSecurity
 public class WebSercurityConfig extends WebSecurityConfigurerAdapter{
@@ -47,6 +54,7 @@ public class WebSercurityConfig extends WebSecurityConfigurerAdapter{
 		http
 		.antMatcher("/api/**").authorizeRequests()
 		.antMatchers("/api/admin/auth/**").permitAll()
+		.antMatchers("/api/admin/**").hasAnyRole("ADMIN","MANAGER")
 		.anyRequest().authenticated();
 		
 		http.addFilter(new AuthFilter(authenticationManager(),userDetailService));

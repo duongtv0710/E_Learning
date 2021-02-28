@@ -10,6 +10,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.cybersoft.service.FileService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Trường
+//Version:
+//Created on:
 @RestController
 @RequestMapping("api/user/file")
 public class UserFileController {

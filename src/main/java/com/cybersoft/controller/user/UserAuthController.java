@@ -13,6 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.LoginDto;
 import com.cybersoft.service.AuthService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Trường
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/user/auth")
 public class UserAuthController {

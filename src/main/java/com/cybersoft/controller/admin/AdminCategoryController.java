@@ -23,7 +23,7 @@ import com.cybersoft.service.CategoryService;
 //Description:
 //Input params:
 //Output:
-//Creator: Thịnh
+//Creator: Dương
 //Version:
 //Created on:
 @RestController

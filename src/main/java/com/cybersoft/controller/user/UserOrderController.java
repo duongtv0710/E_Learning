@@ -12,6 +12,13 @@ import com.cybersoft.entity.Order;
 import com.cybersoft.entity.OrderDetail;
 import com.cybersoft.service.OrderService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Trường
+//Version:
+//Created on:
 @RequestMapping("/api/user/order")
 public class UserOrderController {
 	@Autowired

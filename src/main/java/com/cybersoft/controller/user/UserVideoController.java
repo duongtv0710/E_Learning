@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.VideoDto;
 import com.cybersoft.service.VideoService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Trường
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/user/video")
 public class UserVideoController {
