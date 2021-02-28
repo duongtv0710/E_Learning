@@ -19,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.VideoDto;
 import com.cybersoft.service.VideoService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/video")
 public class AdminVideoController {

@@ -19,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.UserDto;
 import com.cybersoft.service.UserService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/user")
 public class AdminUserController {

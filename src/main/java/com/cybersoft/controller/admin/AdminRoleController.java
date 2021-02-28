@@ -19,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.RoleDto;
 import com.cybersoft.service.RoleService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Thịnh
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/role")
 public class AdminRoleController {

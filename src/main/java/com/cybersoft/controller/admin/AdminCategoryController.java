@@ -19,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.CategoryDto;
 import com.cybersoft.service.CategoryService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Thịnh
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/category")
 public class AdminCategoryController {
