@@ -2,22 +2,46 @@ package com.cybersoft.dto;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CourseDto {
 
 	private int id;
+	
+	@NotEmpty(message = "Please Enter Title !")
 	private String title;
+	
+	@NotEmpty(message = "Please Enter Image !")
 	private String image;
+	
+	@Min(1)
 	private int leturesCount;
+	
+	@Min(1)
 	private int hourCount;
+	
+
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="YYYY-MM-DD hh:mm:ss")
 	private Timestamp lastUpdate;
+	
+	
 	private int viewCount;
+	
+	@Min(1)
 	private float price;
+	
+
 	private int discount;
+	
+
 	private float promotionPrice;
+	
+	@NotEmpty(message = "Please Enter Description !")
 	private String description;
+	
 	private int categoryId;
 
 	public int getId() {

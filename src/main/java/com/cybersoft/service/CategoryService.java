@@ -13,4 +13,6 @@ public interface CategoryService {
 	void edit(CategoryDto category);
 
 	void deleteById(int id);
+
+	CategoryDto getById(int id);
 }

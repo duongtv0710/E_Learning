@@ -3,8 +3,6 @@ package com.cybersoft.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +16,6 @@ import com.cybersoft.entity.User;
 import com.cybersoft.repository.UserRepository;
 
 @Service
-@Transactional(rollbackOn = Exception.class)
 public class UserDetailServiceImpl implements UserDetailsService{
 	
 	@Autowired

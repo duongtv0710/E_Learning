@@ -46,6 +46,10 @@ public class RoleServiceImpl implements RoleService{
 	}
 	
 	public void save(RoleDto dto) {
+		if(dto==null) {
+			return;
+		}
+		
 		Role entity = new Role();
 		entity.setName(dto.getName());
 		entity.setDescription(dto.getDescription());

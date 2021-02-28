@@ -1,13 +1,25 @@
 package com.cybersoft.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class UserDto {
 	
 	private int id;
+	
+	@NotEmpty(message = "Please Enter Fullname !")
 	private String fullname;
+	
+	@NotEmpty(message = "Please Enter Email !")
 	private String email;
+	
+	@NotEmpty(message = "Please Enter Password !")
 	private String password;
+	
+	@NotEmpty(message = "Please Enter Avatar !")
 	private String avatar;
+
 	private int roleId;
+	
 	private String roleDesc;
 	
 	public UserDto() {}

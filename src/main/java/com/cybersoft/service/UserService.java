@@ -16,7 +16,5 @@ public interface UserService {
 	void deleteById(int id);
 
 	UserDto getById(int id);
-	
-	void changedPass(int id);
 
 }

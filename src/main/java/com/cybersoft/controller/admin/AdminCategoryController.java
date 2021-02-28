@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.CategoryDto;
 import com.cybersoft.service.CategoryService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Thịnh
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/category")
 public class AdminCategoryController {
@@ -37,8 +46,21 @@ public class AdminCategoryController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {	
+		try {
+			CategoryDto category = categoryService.getById(id);	
+			return new ResponseEntity<Object>(category, HttpStatus.OK);	
+			
+		} catch (Exception e) {
+			e.printStackTrace();	
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+			
+		}
+	}
+	
 	@PostMapping("")
-	public Object post(@RequestBody CategoryDto category) {
+	public Object post(@Valid @RequestBody CategoryDto category) {
 		try {
 			categoryService.save(category);	
 			return new ResponseEntity<Object>(HttpStatus.CREATED);	
@@ -51,7 +73,7 @@ public class AdminCategoryController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody CategoryDto category) {
+	public Object put(@Valid @RequestBody CategoryDto category) {
 		try {
 			categoryService.edit(category);
 			return new ResponseEntity<Object>(HttpStatus.OK);	

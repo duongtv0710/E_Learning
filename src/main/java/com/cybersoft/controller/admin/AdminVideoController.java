@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.VideoDto;
 import com.cybersoft.service.VideoService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/video")
 public class AdminVideoController {
@@ -35,8 +44,19 @@ public class AdminVideoController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {
+		try {
+			VideoDto video = videoService.getById(id);
+			return new ResponseEntity<Object>(video, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	@PostMapping("")
-	public Object post(@RequestBody VideoDto dto) {
+	public Object post(@Valid @RequestBody VideoDto dto) {
 		try {
 			videoService.save(dto);
 			return new ResponseEntity<Object>(HttpStatus.OK);
@@ -47,7 +67,7 @@ public class AdminVideoController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody VideoDto dto) {
+	public Object put(@Valid @RequestBody VideoDto dto) {
 		try {
 			videoService.edit(dto);
 			return new ResponseEntity<Object>(HttpStatus.OK);

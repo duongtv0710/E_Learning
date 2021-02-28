@@ -72,4 +72,15 @@ public class CategoryServiceImpl implements CategoryService{
 		
 	}
 
+	@Override
+	public CategoryDto getById(int id) {
+		if(id<0) {
+			return null;
+		}
+		
+		Category entity = categoryRepository.findById(id).get();
+		
+		return new CategoryDto(entity.getId(), entity.getTitle(), entity.getIcon());
+	}
+
 }

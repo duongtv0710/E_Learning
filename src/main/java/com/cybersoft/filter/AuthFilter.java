@@ -40,7 +40,6 @@ public class AuthFilter extends BasicAuthenticationFilter{
 		
 		if(tokenHeader!=null && !tokenHeader.isEmpty() && tokenHeader.startsWith("Bearer ")) {
 			String token = tokenHeader.replace("Bearer ", "");
-			
 			String email = Jwts
 					.parser()
 					.setSigningKey(SIGN_KEY)

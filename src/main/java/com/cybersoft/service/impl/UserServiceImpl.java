@@ -65,7 +65,10 @@ public class UserServiceImpl implements UserService{
 			return;
 		}
 		
-		userRepository.saveAndFlush(transToEntity(dto));
+		User user = transToEntity(dto);
+		user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
+		
+		userRepository.saveAndFlush(user);
 	}
 
 	@Override
@@ -82,20 +85,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public User transToEntity(UserDto dto) {
-		return new User(dto.getId(), dto.getFullname(), dto.getEmail(), dto.getPassword(), dto.getAvatar(), dto.getRoleId());	
-		
-	}
-
-	@Override
-	public void changedPass(int id) {
-		UserDto dto = getById(id);
-		if(dto==null) {
-			return;
-		}
-		
-		User entity = transToEntity(dto);
-		entity.setPassword(BCrypt.hashpw(entity.getPassword(), BCrypt.gensalt()));
-		userRepository.save(entity);
+		return new User(dto.getId(), dto.getEmail(), dto.getPassword(), dto.getFullname(), dto.getAvatar(), dto.getRoleId());	
 		
 	}
 

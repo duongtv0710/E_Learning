@@ -1,9 +1,14 @@
 package com.cybersoft.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class TargetDto {
 
 	private int id;	
+	
+	@NotEmpty(message = "Please Enter Title !")
 	private String title;
+	
 	private int courseId;
 
 	public int getId() {

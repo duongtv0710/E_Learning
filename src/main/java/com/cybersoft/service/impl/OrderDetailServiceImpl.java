@@ -3,10 +3,8 @@ package com.cybersoft.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cybersoft.entity.Order;
 import com.cybersoft.entity.OrderDetail;
 import com.cybersoft.repository.OrderDetailRepository;
-import com.cybersoft.repository.OrderRepository;
 import com.cybersoft.service.OrderDetailService;
 
 @Service

@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.TargetDto;
 import com.cybersoft.service.TargetService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/target")
 public class AdminTargetController {
@@ -35,8 +44,19 @@ public class AdminTargetController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {
+		try {
+			TargetDto target = targetService.getById(id);
+			return new ResponseEntity<Object>(target, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	@PostMapping("")
-	public Object post(@RequestBody TargetDto dto) {
+	public Object post(@Valid @RequestBody TargetDto dto) {
 		try {
 			targetService.add(dto);
 			return new ResponseEntity<Object>(HttpStatus.CREATED);
@@ -47,7 +67,7 @@ public class AdminTargetController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody TargetDto dto) {
+	public Object put(@Valid @RequestBody TargetDto dto) {
 		try {
 			targetService.edit(dto);
 			return new ResponseEntity<Object>(HttpStatus.OK);

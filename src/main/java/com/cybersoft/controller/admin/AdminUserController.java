@@ -2,6 +2,8 @@ package com.cybersoft.controller.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybersoft.dto.UserDto;
 import com.cybersoft.service.UserService;
 
+//Object name:
+//Description:
+//Input params:
+//Output:
+//Creator: Dương
+//Version:
+//Created on:
 @RestController
 @RequestMapping("/api/admin/user")
 public class AdminUserController {
@@ -37,8 +46,21 @@ public class AdminUserController {
 		}
 	}
 	
+	@GetMapping("{id}")
+	public Object get(@PathVariable int id) {	
+		try {
+			UserDto user = userService.getById(id);
+			return new ResponseEntity<Object>(user, HttpStatus.OK);	
+			
+		} catch (Exception e) {
+			e.printStackTrace();	
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+			
+		}
+	}
+	
 	@PostMapping("")
-	public Object post(@RequestBody UserDto user) {
+	public Object post(@Valid @RequestBody UserDto user) {
 		try {
 			userService.save(user);	
 			return new ResponseEntity<Object>(HttpStatus.CREATED);	
@@ -51,7 +73,7 @@ public class AdminUserController {
 	}
 	
 	@PutMapping("")
-	public Object put(@RequestBody UserDto user) {
+	public Object put(@Valid @RequestBody UserDto user) {
 		try {
 			userService.edit(user);
 			return new ResponseEntity<Object>(HttpStatus.OK);	
