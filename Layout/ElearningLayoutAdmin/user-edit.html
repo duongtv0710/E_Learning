@@ -83,9 +83,9 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="assets/images/avatar-4.jpg" class="img-radius"
+                                        <img src="assets/images/avatar-4.jpg" class="img-radius" id="iAvatar"
                                             alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <span id="sName">John Doe</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu"
@@ -101,7 +101,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-normal-sign-in.htm">
+                                            <a href="javascript:void(0)" onclick="logout()">
                                                 <i class="feather icon-log-out"></i> Logout
                                             </a>
                                         </li>
