@@ -53,7 +53,7 @@ public class WebSercurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		http
 		.antMatcher("/api/**").authorizeRequests()
-		.antMatchers("/api/admin/auth/**").permitAll()
+		.antMatchers("/api/admin/auth/**","/api/user/**").permitAll()
 		.antMatchers("/api/admin/**").hasAnyRole("ADMIN","MANAGER")
 		.anyRequest().authenticated();
 		
@@ -69,6 +69,7 @@ public class WebSercurityConfig extends WebSecurityConfigurerAdapter{
 		"/swagger-resources/**",
 		"/configuration/security",
 		"/swagger-ui.html",
+		"/swagger-ui/**",
 		"/webjars/**");
 	}
 	

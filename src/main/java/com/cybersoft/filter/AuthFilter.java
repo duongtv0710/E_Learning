@@ -38,7 +38,8 @@ public class AuthFilter extends BasicAuthenticationFilter{
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		if(request.getServletPath().startsWith("/api/admin/auth")) {
+		
+		if(request.getServletPath().startsWith("/api/admin/auth")||request.getServletPath().startsWith("/api/user/")) {
 			chain.doFilter(request, response);
 			return;
 		}
